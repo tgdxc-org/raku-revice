@@ -24,7 +24,7 @@ export default function RootLayout({
         className={`${notoSansJP.className} antialiased`}
       >
         <Header/>
-        {children}
+        {children} 
       </body>
     </html> 
   );

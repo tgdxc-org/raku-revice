@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# プロジェクト概要
+らくらく → EVENT NOVAへのリバイスにあたって作成したランディングページ
+特徴としては、アプリ本体と同じmicroCMSコンテンツを参照して、自動スライドを実装していること
+アプリ本体と同じように、ビルド時にAPIでmicroCMSのデータを参照してビルドする
+同じデータ、同じIDなので、シンプルな実装でリンク先を設定できる
 
-## Getting Started
+# ADR-001: <CMSをデータ元とした自動スライダー>
 
-First, run the development server:
+## Status
+- 採用
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Context（背景）
+- なぜこの判断が必要になったか
+ファーストビューで会場の豊富さを見せたいという要望が起点
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 前提条件・制約
+アプリへのコンバージョンを高めたい
+ファーストビューには地域ごとの遷移リンクを配置する（目立たせる）
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 現在の構成・状況
+microCMSのデータを参照し、リンクを接続
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Decision（決定）
+- 何を選んだか（簡潔に）
+microCMSからデータ取得、自動スライダーを表示
 
-## Learn More
+## Reason（理由）
+- この判断を選んだ根拠
+ファーストビューに収まる範囲で複数の会場をユーザーに見せる手段として、自動スライド
+興味を惹くものがあれば、クリックで直接コンバージョンできる導線設計
 
-To learn more about Next.js, take a look at the following resources:
+- 重視した判断軸
+実装範囲のコンパクトさと会場を豊富に見せることのバランス
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Consequences（結果・影響）
+- 想定されるリスク
+アプリ本体＋ランディングページで同じデータを参照することから、ビルド回数の増加が想定される
+当時はコスト感や更新頻度が不透明だったことから、Webhook連携を行っていない

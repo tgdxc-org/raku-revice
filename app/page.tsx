@@ -53,7 +53,6 @@ export default async function Home() {
   return (
     <>
       <FirstView2 appDomain={appDomain} data={data}/>
-      {/* <FirstView data={data}/> */}
       <Venue appDomain={appDomain} data={data}/>
       <Search/>
       <div className="bg-slate-100">

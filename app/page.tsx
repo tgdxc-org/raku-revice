@@ -48,20 +48,21 @@ export type Data = {
 export default async function Home() {
   
   const data = await getVenueData(600);
+  const appDomain = process.env.APP_DOMAIN;
 
   return (
     <>
-      <FirstView2 data={data}/>
+      <FirstView2 appDomain={appDomain} data={data}/>
       {/* <FirstView data={data}/> */}
-      <Venue data={data}/>
+      <Venue appDomain={appDomain} data={data}/>
       <Search/>
       <div className="bg-slate-100">
         <GetLayout/>
       </div>
         <Build/>
         <Manual/>
-        <Contact data={data}/>
-      <Footer/>
+        <Contact appDomain={appDomain} data={data}/>
+      <Footer appDomain={appDomain}/>
     </>
   );
 }

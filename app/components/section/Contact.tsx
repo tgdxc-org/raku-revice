@@ -2,10 +2,11 @@ import { Data } from '@/app/page'
 import React from 'react'
 
 interface Props {
+  appDomain: string | undefined;
   data: Data[]
 }
 
-const Contact = ({data}: Props) => {
+const Contact = ({ appDomain, data }: Props) => {
 
   return (
     <div className='bg-slate-700 py-10 text-white px-4'>
@@ -16,10 +17,10 @@ const Contact = ({data}: Props) => {
             まずは会場を探してみる
           </h1>
           <ul className='flex flex-row gap-3 justify-center text-sm sm:text-base'>
-            <li><a href='https://eventnova.jp/search' className='bg-white hover:bg-white/80 text-slate-700 px-4 py-1 font-bold rounded-md transition-all ease-in-out'>全国</a></li>
-            <li><a href="https://eventnova.jp/search/q519yevsf4_y" className='bg-white hover:bg-white/80 text-slate-700 px-4 py-1 font-bold rounded-md transition-all ease-in-out'>関東</a></li>
-            <li><a href='https://eventnova.jp/search/ajr3bzwc5' className='bg-white hover:bg-white/80 text-slate-700 px-4 py-1 font-bold rounded-md transition-all ease-in-out'>中部</a></li>
-            <li><a href='https://eventnova.jp/search/3av8w4y1fp' className='bg-white hover:bg-white/80 text-slate-700 px-4 py-1 font-bold rounded-md transition-all ease-in-out'>関西</a></li>
+            <li><a href={`${appDomain}/search`} className='bg-white hover:bg-white/80 text-slate-700 px-4 py-1 font-bold rounded-md transition-all ease-in-out'>全国</a></li>
+            <li><a href={`${appDomain}/search/q519yevsf4_y`} className='bg-white hover:bg-white/80 text-slate-700 px-4 py-1 font-bold rounded-md transition-all ease-in-out'>関東</a></li>
+            <li><a href={`${appDomain}/search/ajr3bzwc5`} className='bg-white hover:bg-white/80 text-slate-700 px-4 py-1 font-bold rounded-md transition-all ease-in-out'>中部</a></li>
+            <li><a href={`${appDomain}/search/3av8w4y1fp`} className='bg-white hover:bg-white/80 text-slate-700 px-4 py-1 font-bold rounded-md transition-all ease-in-out'>関西</a></li>
           </ul>
         </div>
         <div className='space-y-4'>

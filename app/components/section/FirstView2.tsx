@@ -8,14 +8,15 @@ import ChoseArea from '../ui/ChoseArea';
 import { Data } from '@/app/page';
 
 interface Props {
+  appDomain: string | undefined;
   data: Data[]
 }
 
-const FirstView2 = ({ data }:Props) => {
+const FirstView2 = ({ appDomain, data }:Props) => {
   return (
     <div className='relative'>
       <div className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10'>
-        <ChoseArea data={data}/>
+        <ChoseArea appDomain={appDomain} data={data}/>
       </div>
       <Swiper
       slidesPerView={1}

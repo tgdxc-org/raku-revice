@@ -2,30 +2,32 @@ import { Data } from "@/app/page";
 import Link from "next/link";
 import React from "react";
 
-const areaList = [
-  {
-    label: "全国",
-    href: "https://eventnova.jp/search",
-  },
-  {
-    label: "関東",
-    href: "https://eventnova.jp/search/q519yevsf4_y",
-  },
-  {
-    label: "中部",
-    href: "https://eventnova.jp/search/ajr3bzwc5",
-  },
-  {
-    label: "関西",
-    href: "https://eventnova.jp/search/3av8w4y1fp",
-  },
-];
 
 interface Props {
+  appDomain: string | undefined;
   data: Data[];
 }
 
-const ChoseArea = ({ data }: Props) => {
+const ChoseArea = ({ appDomain, data }: Props) => {
+  const areaList = [
+    {
+      label: "全国",
+      href: `${appDomain}/search`,
+    },
+    {
+      label: "関東",
+      href: `${appDomain}/search/q519yevsf4_y`,
+    },
+    {
+      label: "中部",
+      href: `${appDomain}/search/ajr3bzwc5`,
+    },
+    {
+      label: "関西",
+      href: `${appDomain}/search/3av8w4y1fp`,
+    },
+  ];
+
   return (
     <>
       <h1 className="text-base md:text-3xl font-bold leading-[1.5em] py-2 mx-auto w-fit text-white mt-[100px] mb-10">

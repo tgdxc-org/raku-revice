@@ -5,6 +5,7 @@ import Header from "./components/section/Header";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 const notoSansJP = Noto_Sans_JP({subsets: ["latin"], weight: ["100", "300", "500", "700", "900"]});
+const appDomain = process.env.APP_DOMAIN;
 
 export const metadata: Metadata = {
   title: "ビジネスイベントの担当者向けに最適な会場を簡単に検索。｜イベントの場を探すなら「イベントノバ EVENT NOVA」",
@@ -17,13 +18,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="ja">
       <GoogleTagManager gtmId="GTM-NFHJK6F"/>
       <body
         className={`${notoSansJP.className} antialiased`}
       >
-        <Header/>
+        <Header appDomain={appDomain}/>
         {children} 
       </body>
     </html> 

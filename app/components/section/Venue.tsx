@@ -6,10 +6,11 @@ import React, { useEffect, useState } from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
 
 interface Props {
+  appDomain: string | undefined;
   data: Data[];
 }
 
-const Venue = ({ data }: Props) => {
+const Venue = ({ appDomain, data }: Props) => {
   const { windowSize } = useWindowSize();
   const [venueArray, setVenueArray] = useState<Data[]>();
 
@@ -36,12 +37,12 @@ const Venue = ({ data }: Props) => {
           {venueArray.map((item, i) => (
             <li key={i} className="bg-white p-2 drop-shadow-lg">
               <Link
-                href={`https://eventnova.jp/search/${item.area.id}/${item.id}`}
+                href={`${appDomain}/search/${item.area.id}/${item.id}`}
                 className="hover:opacity-80 transition-all ease-in-out flex flex-col gap-2"
               >
                 <img
                   className="aspect-video object-cover w-full"
-                  src={`https://eventnova.jp${item.outerThumbnail}`}
+                  src={`${appDomain}${item.outerThumbnail}`}
                   alt={`${item.venueName} ${item.hallName}`}
                 />
                 <div className="">

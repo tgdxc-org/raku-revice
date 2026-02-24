@@ -41,7 +41,7 @@ const Venue = ({ data }: Props) => {
               >
                 <img
                   className="aspect-video object-cover w-full"
-                  src={item.outerThumbnail}
+                  src={`https://eventnova.jp${item.outerThumbnail}`}
                   alt={`${item.venueName} ${item.hallName}`}
                 />
                 <div className="">

@@ -59,7 +59,7 @@ const Venue = ({ appDomain, data }: Props) => {
           {venueArray.map((item, i) => (
             <li key={i} className="bg-white p-2 drop-shadow-lg">
               <Link
-                href=""
+                href={`${appDomain}/search/${item.area.id}/${item.id}`}
                 className="hover:opacity-80 transition-all ease-in-out flex flex-col gap-2"
               >
                 <img

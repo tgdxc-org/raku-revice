@@ -51,9 +51,7 @@ const Venue = ({ appDomain, data }: Props) => {
                     <br />
                     {item.hallName ? item.hallName : ""}
                   </p>
-                  <p className="text-xs text-[#07A1C1]">
-                    {item.capacity}ブース設置可能
-                  </p>
+                  <p className="text-xs text-[#07A1C1]">{item.capacity}ブース設置可能</p>
                 </div>
               </Link>
             </li>
@@ -66,7 +64,7 @@ const Venue = ({ appDomain, data }: Props) => {
               >
                 <img
                   className="aspect-video object-cover w-full"
-                  src={item.outerThumbnail}
+                  src={`${appDomain}${item.outerThumbnail}`}
                   alt={`${item.venueName} ${item.hallName}`}
                 />
                 <div className="">
@@ -75,9 +73,7 @@ const Venue = ({ appDomain, data }: Props) => {
                     <br />
                     {item.hallName ? item.hallName : " "}
                   </p>
-                  <p className="text-xs text-[#07A1C1]">
-                    {item.capacity}ブース設置可能
-                  </p>
+                  <p className="text-xs text-[#07A1C1]">{item.capacity}ブース設置可能</p>
                 </div>
               </Link>
             </li>
